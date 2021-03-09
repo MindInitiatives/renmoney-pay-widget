@@ -1,1 +1,50 @@
-<p>renmoney-pay-edetials works!</p>
+ <!-- Main Wrapper -->       
+ <div class="access-screen">
+    <div class="overlay"></div>
+        <div class="access-wrap animated fadeIn">
+    <form class="access-box" name="loginForm">
+            <div class="access-screen-logo">
+                <p>Section 3/3: <span>&nbsp;Employment Details</span></p>
+                <a href="https://renmoney.com/" title="Courierstack">
+                    <img src="/assets/img/renmoneyng_icon.png" width="27" alt="renmoney logo">
+                </a>
+            </div>                
+            <!-- <h2 class="title-3"> sign in </h2> -->
+            <div class="login-form clrbg-before">
+                <form class="login">
+                    
+                    <div class="form-group"><input type="text" required name="employerName" id="name" placeholder="Employer Name" class="form-control" [(ngModel)]="currentData.employerName"></div>
+                    <div class="form-group">
+                        <select class="form-control" id="empSector" name="employerSector" [(ngModel)]="currentData.employerSector">
+                            <option value="null" selected="true">Employer Sector</option>
+                            <option *ngFor="let sector of sectors" [value]="sector.name">
+                              {{sector.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Employment start date" name="employerStartDate" class="form-control air-datepicker" [(ngModel)]="currentData.employmentStartDate">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="officeAddress" [(ngModel)]="currentData.officeAddress" id="address" rows="1" maxlength="70" placeholder="Office Address"></textarea>
+                      </div>
+                      <div class="form-group"><input type="email" required name="email_address" id="email_address" placeholder="Work Email" class="form-control" [(ngModel)]="currentData.workEmail"></div>
+                    
+                    <div class="form-group mb-0 text-right">
+                        <button (click)="finish()" class="btn-round" type="submit"> Submit </button>
+                    </div>
+                </form>                       
+            </div> 
+    </form>
+</div>
+
+<!-- </div> -->
+<footer class="footer">
+    <div class="float-right d-flex align-items-center">
+        <p class="copyright">©&#65279;2021 CourierStack</p>
+        <p class="credits"> Designed by <a href="https://github.com/MindInitiatives">Minds Initiative</a></p>
+    </div>
+</footer>
+</div>
+<!-- / Main Wrapper -->

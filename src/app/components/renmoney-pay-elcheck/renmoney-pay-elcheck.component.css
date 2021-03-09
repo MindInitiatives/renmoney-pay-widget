@@ -1,0 +1,74 @@
+.access-screen-logo {
+    padding: 0px;
+    text-align: right;
+    position: relative;
+  }
+
+.login-form::before {
+    height: 1px;
+    right: 0%;
+    left: 0%;
+    margin: auto;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+}
+
+.access-wrap .access-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 25px 25px;
+    position: relative;
+    /* width: 100%; */
+}
+
+.btn-round {
+    border-radius: 30px;
+    text-align: center;
+    border: 2px solid #222222;
+    height: 40px;
+    line-height: 0px;
+    padding: 10px;
+    font-size: 14px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 200px;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+.login-form {
+    border-top: 1px solid #eaeaea;
+    display: inline-block;
+    /* margin-top: 18px; */
+    padding-top: 20px;
+    width: 100%;
+}
+
+
+ 
+    /* replace "1" with the number of the first field that you want to align horizontally */
+    /* .login>*:nth-child(1), */
+    /* replace "2" with the number of the second field that you want to align horizontally */
+    
+    .login>*:nth-child(5),
+    .login>*:nth-child(6){
+        width: 49%;
+    }
+
+    .login>*:nth-child(1),
+    .login>*:nth-child(2),
+    .login>*:nth-child(3),
+    /* .login>*:nth-child(4), */
+    /* .login>*:nth-child(6), */
+    .login>*:nth-child(7),
+    .login>*:nth-child(8),
+    .login>*:nth-child(9),
+    .login>*:nth-child(10),
+    .login>*:nth-child(11),
+    .login>*:nth-child(12){
+        width: 32%;
+    }

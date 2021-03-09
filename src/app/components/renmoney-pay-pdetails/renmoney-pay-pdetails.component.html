@@ -1,1 +1,75 @@
-<p>renmoney-pay-pdetails works!</p>
+ <!-- Main Wrapper -->       
+ <div class="access-screen">
+    <div class="overlay"></div>
+        <div class="access-wrap animated fadeIn">
+    <form class="access-box" name="loginForm">
+            <div class="access-screen-logo">
+                <p>Section 2/3: <span>&nbsp;Personal Details</span></p>
+                <a href="https://renmoney.com/" title="Courierstack">
+                    <img src="/assets/img/renmoneyng_icon.png" width="27" alt="renmoney logo">
+                </a>
+            </div>                
+            <!-- <h2 class="title-3"> sign in </h2> -->
+            <div class="login-form clrbg-before">
+                <form class="login">
+                    
+                    <div class="radio-form form-group">
+                        <div class="radio-label">
+                            <!-- <p>Employment status :</p> -->
+                            <label>
+                                Residential status :
+                             </label>
+                          </div>
+                            <div class="custom-control custom-radio w-100">
+                                <input type="radio" class="custom-control-input" name="residentialStatus" [(ngModel)]="currentData.residentialStatus" value="owner" id="customRadios1">
+                                <label class="custom-control-label" for="customRadios1">
+                                    Owner
+                                 </label>
+                                </div>
+                                <div class="custom-control custom-radio w-100">
+                                  <input type="radio" class="custom-control-input" name="residentialStatus"  [(ngModel)]="currentData.residentialStatus" value="renting" id="customRadios2">
+                                  <label class="custom-control-label" for="customRadios2">
+                                    Renting
+                                   </label>
+                                  </div>
+
+                      </div>
+                      <div class="form-group">
+                        <textarea class="form-control" [(ngModel)]="currentData.residentialAddress" name="address" id="address" rows="1" maxlength="70" placeholder="Residential Address"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" placeholder="Date moved in" name="dateMovedIn" class="form-control air-datepicker" [(ngModel)]="currentData.dateMovedIn">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="maritalStatus" name="maritalStatus" [(ngModel)]="currentData.maritalStatus">
+                            <option value="null" selected="true">Marital Status</option>
+                            <option value="single" selected="true">Single</option>
+                            <option value="married" selected="true">Married</option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="educationLevel" name="educationLevel" [(ngModel)]="currentData.levelEducation">
+                            <option value="null" selected="true">Level of Education</option>
+                            <option *ngFor="let leducation of leducations" [value]="leducation.name">
+                              {{leducation.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group mb-0 text-right">
+                        <button (click)="next()" class="btn-round" type="submit"> Continue </button>
+                    </div>
+                </form>                       
+            </div> 
+    </form>
+</div>
+
+<!-- </div> -->
+<footer class="footer">
+    <div class="float-right d-flex align-items-center">
+        <p class="copyright">©&#65279;2021 CourierStack</p>
+        <p class="credits"> Designed by <a href="https://github.com/MindInitiatives">Minds Initiative</a></p>
+    </div>
+</footer>
+</div>
+<!-- / Main Wrapper -->

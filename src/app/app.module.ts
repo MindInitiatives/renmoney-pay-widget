@@ -9,6 +9,7 @@ import { RenmoneyPayPdetailsComponent } from './components/renmoney-pay-pdetails
 import { RenmoneyPayEdetialsComponent } from './components/renmoney-pay-edetials/renmoney-pay-edetials.component';
 import {createCustomElement} from '@angular/elements';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

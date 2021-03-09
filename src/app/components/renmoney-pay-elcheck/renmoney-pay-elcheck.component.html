@@ -1,1 +1,191 @@
-<p>Renmoney-pay-elcheck works!</p>
+ <!-- Main Wrapper -->       
+ <div class="access-screen">
+    <div class="overlay"></div>
+        <div class="access-wrap animated fadeIn">
+    <form class="access-box" name="loginForm">
+            <div class="access-screen-logo">
+                <p>Section 1/3: <span>&nbsp;Eligibility Check</span></p>
+                <a href="https://renmoney.com/" title="RenMoney">
+                    <img src="/assets/img/renmoneyng_icon.png" width="27" alt="renmoney logo">
+                </a>
+            </div>                
+            <!-- <h2 class="title-3"> sign in </h2> -->
+            <div class="login-form clrbg-before">
+                <!-- <form class="login" (submit)="next()" [formGroup]="dataForm">
+                    
+                    <div class="form-group"><input type="text" required name="firstName" id="firstName" placeholder="First Name" class="form-control" formControlName="firstName"></div>
+                    <div class="form-group"><input type="text" required name="middleName" id="middleName" placeholder="Middle Name" class="form-control" formControlName="middleName"></div>
+                    <div class="form-group"><input type="text" required name="lastName" id="lastName" placeholder="Last Name" class="form-control" formControlName="lastName"></div>
+
+                    <div class="radio-form form-group">
+                        <div class="radio-label">
+                            <label>
+                                Employment status :
+                             </label>
+                          </div>
+                        <div class="custom-control custom-radio w-100">
+                          <input type="radio" class="custom-control-input" value="employed" formControlName="option" id="customRadios1">
+                          <label class="custom-control-label" for="customRadios1">
+                            Employed
+                           </label>
+                          </div>
+                          <div class="custom-control custom-radio w-100">
+                            <input type="radio" class="custom-control-input" value="self-employed" formControlName="option" id="customRadios2">
+                            <label class="custom-control-label" for="customRadios2">
+                                Self-Employed
+                             </label>
+                            </div>
+                      </div>
+                    <div class="form-group">
+                        <select class="form-control" id="state" name="state" formControlName="state">
+                            <option value="null" selected="true">State</option>
+                            <option *ngFor="let state of states" [value]="state.name">
+                              {{state.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="lga" name="local government area" formControlName="lga">
+                            <option value="null" selected="true">LGA</option>
+                            <option *ngFor="let lga of lgas" [value]="lga.name">
+                              {{lga.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="income" name="income" formControlName="income">
+                            <option value="null" selected="true">Select</option>
+                            <option *ngFor="let income of incomes" [value]="income.amount">
+                              {{income.amount|currency:"$"}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group"><input type="text" required name="bvn" id="bvn" maxlength="10" placeholder="BVN" class="form-control" formControlName="bvn"></div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Date of Birth" class="form-control air-datepicker" formControlName="dob">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="form-group"><input type="email" required name="email_address" id="email_address" placeholder="Email address" class="form-control" formControlName="email"></div>
+                    <div class="form-group"><input type="tel" required name="phone" id="phone" placeholder="Phone number" class="form-control" formControlName="phone"></div>
+                    <div class="form-group">
+                        <select class="form-control" id="gender" name="gender" formControlName="gender">
+                            <option value="null" selected="true">Gender</option>
+                            <option value="male" selected="true">Male</option>
+                            <option value="female" selected="true">Female</option>
+                          </select>
+                    </div>
+                    <div class="form-group mb-0 text-right">
+                        <button class="btn-round" type="submit"> Continue </button>
+                    </div>
+                </form>   -->
+                
+                <form class="login" (ngSubmit)="next()">
+                    
+                    <div class="form-group">
+                        <input type="text" name="firstName" required id="firstName" placeholder="First Name" class="form-control" #fname="ngModel" [(ngModel)]="currentData.firstName">
+                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="alert alert-danger">
+
+                        <div *ngIf="fname.errors.required">
+                            First Name is required.
+                        </div>
+                        <!-- <div *ngIf="name.errors.minlength">
+                            Name must be at least 4 characters long.
+                        </div>
+                        <div *ngIf="name.errors.forbiddenName">
+                            Name cannot be Bob.
+                        </div> -->
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" required name="middleName" id="middleName" placeholder="Middle Name" class="form-control" #mname="ngModel" [(ngModel)]="currentData.middleName">
+                        <div *ngIf="mname.invalid && (mname.dirty || mname.touched || submitted)" class="alert alert-danger">
+
+                            <div *ngIf="mname.errors.required">
+                                Middle Name is required.
+                            </div>
+                            <!-- <div *ngIf="name.errors.minlength">
+                                Name must be at least 4 characters long.
+                            </div>
+                            <div *ngIf="name.errors.forbiddenName">
+                                Name cannot be Bob.
+                            </div> -->
+    
+                            </div>
+                    </div>
+                    <div class="form-group"><input type="text" required name="lastName" id="lastName" placeholder="Last Name" class="form-control" [(ngModel)]="currentData.lastName"></div>
+
+                    <div class="radio-form form-group">
+                        <div class="radio-label">
+                            <label>
+                                Employment status :
+                             </label>
+                          </div>
+                        <div class="custom-control custom-radio w-100">
+                          <input type="radio" class="custom-control-input" name="employmentStatus" [(ngModel)]="currentData.employmentStatus" value="employed" id="customRadios1">
+                          <label class="custom-control-label" for="customRadios1">
+                            Employed
+                           </label>
+                          </div>
+                          <div class="custom-control custom-radio w-100">
+                            <input type="radio" class="custom-control-input" name="employmentStatus"  [(ngModel)]="currentData.employmentStatus" value="self employed" id="customRadios2">
+                            <label class="custom-control-label" for="customRadios2">
+                              Self-employed
+                             </label>
+                            </div>
+                      </div>
+                    <div class="form-group">
+                        <select class="form-control" id="state" name="state" [(ngModel)]="currentData.state">
+                            <option value="null" selected="true">State</option>
+                            <option *ngFor="let state of states" [value]="state.name">
+                              {{state.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="lga" name="local government area" [(ngModel)]="currentData.lga">
+                            <option value="null" selected="true">LGA</option>
+                            <option *ngFor="let lga of lgas" [value]="lga.name">
+                              {{lga.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="income" name="income" [(ngModel)]="currentData.monthlyIncome">
+                            <option value="null" selected="true">Select</option>
+                            <option *ngFor="let income of incomes" [value]="income.amount">
+                              {{income.amount|currency:"$"}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="form-group"><input type="text" required name="bvn" id="bvn" maxlength="10" placeholder="BVN" class="form-control" [(ngModel)]="currentData.bvn"></div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Date of Birth" name="dateOfBirth" class="form-control air-datepicker" [(ngModel)]="currentData.dob">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="form-group"><input type="email" required name="email_address" id="email_address" placeholder="Email address" class="form-control" [(ngModel)]="currentData.email"></div>
+                    <div class="form-group"><input type="tel" required name="phone" id="phone" placeholder="Phone number" class="form-control" [(ngModel)]="currentData.phone"></div>
+                    <div class="form-group">
+                        <select class="form-control" id="gender" name="gender" [(ngModel)]="currentData.gender">
+                            <option value="null" selected="true">Gender</option>
+                            <option value="male" selected="true">Male</option>
+                            <option value="female" selected="true">Female</option>
+                          </select>
+                    </div>
+                    <div class="form-group mb-0 text-right">
+                        <button class="btn-round" type="submit"> Continue </button>
+                    </div>
+                </form>  
+            </div> 
+    </form>
+</div>
+
+<!-- </div> -->
+<footer class="footer">
+    <div class="float-right d-flex align-items-center">
+        <p class="copyright">©&#65279;2021 CourierStack</p>
+        <p class="credits"> Designed by <a href="https://github.com/MindInitiatives">Minds Initiative</a></p>
+    </div>
+</footer>
+</div>
+<!-- / Main Wrapper -->

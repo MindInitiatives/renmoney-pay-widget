@@ -1,0 +1,49 @@
+.access-screen-logo {
+    padding: 0px;
+    text-align: right;
+    position: relative;
+  }
+
+.login-form::before {
+    height: 1px;
+    right: 0%;
+    left: 0%;
+    margin: auto;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+}
+
+.access-wrap .access-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 25px 25px;
+    position: relative;
+    /* width: 100%; */
+}
+
+.btn-round {
+    border-radius: 30px;
+    text-align: center;
+    border: 2px solid #222222;
+    height: 40px;
+    line-height: 0px;
+    padding: 10px;
+    font-size: 14px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 200px;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+.login-form {
+    border-top: 1px solid #eaeaea;
+    display: inline-block;
+    /* margin-top: 18px; */
+    padding-top: 20px;
+    width: 100%;
+}
