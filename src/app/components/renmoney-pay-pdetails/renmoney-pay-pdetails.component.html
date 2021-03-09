@@ -11,7 +11,7 @@
             </div>                
             <!-- <h2 class="title-3"> sign in </h2> -->
             <div class="login-form clrbg-before">
-                <form class="login">
+                <form name="form" class="login" (ngSubmit)="f.form.valid && next()" #f="ngForm" novalidate>
                     
                     <div class="radio-form form-group">
                         <div class="radio-label">
@@ -21,43 +21,72 @@
                              </label>
                           </div>
                             <div class="custom-control custom-radio w-100">
-                                <input type="radio" class="custom-control-input" name="residentialStatus" [(ngModel)]="currentData.residentialStatus" value="owner" id="customRadios1">
+                                <input type="radio" class="custom-control-input" name="residentialStatus" #resSt="ngModel" [(ngModel)]="currentData.residentialStatus" value="owner" id="customRadios1" required>
                                 <label class="custom-control-label" for="customRadios1">
                                     Owner
                                  </label>
                                 </div>
                                 <div class="custom-control custom-radio w-100">
-                                  <input type="radio" class="custom-control-input" name="residentialStatus"  [(ngModel)]="currentData.residentialStatus" value="renting" id="customRadios2">
+                                  <input type="radio" class="custom-control-input" name="residentialStatus" #resSt="ngModel" [(ngModel)]="currentData.residentialStatus" value="renting" id="customRadios2" required>
                                   <label class="custom-control-label" for="customRadios2">
                                     Renting
                                    </label>
                                   </div>
+                                  <div *ngIf="resSt.invalid && (f.submitted)" class="alert alert-danger">
 
+                                    <div *ngIf="resSt.errors.required">
+                                        Please Select a Residential Status.
+                                    </div>
+                                    </div>
                       </div>
                       <div class="form-group">
-                        <textarea class="form-control" [(ngModel)]="currentData.residentialAddress" name="address" id="address" rows="1" maxlength="70" placeholder="Residential Address"></textarea>
+                        <textarea class="form-control" #resadd="ngModel" [(ngModel)]="currentData.residentialAddress" name="address" id="address" rows="1" maxlength="70" placeholder="Residential Address" required></textarea>
+                        <div *ngIf="resadd.invalid && (resadd.dirty || resadd.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="resadd.errors.required">
+                                Residential Address is required.
+                            </div>
+                            </div>
                       </div>
                       <div class="form-group">
-                        <input type="text" placeholder="Date moved in" name="dateMovedIn" class="form-control air-datepicker" [(ngModel)]="currentData.dateMovedIn">
+                        <input type="text" placeholder="Date moved in" name="dateMovedIn" class="form-control air-datepicker" #dminame="ngModel" [(ngModel)]="currentData.dateMovedIn" required>
                         <i class="far fa-calendar-alt"></i>
+                        <div *ngIf="dminame.invalid && (dminame.dirty || dminame.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="dminame.errors.required">
+                                Please select Date Moved in.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="maritalStatus" name="maritalStatus" [(ngModel)]="currentData.maritalStatus">
-                            <option value="null" selected="true">Marital Status</option>
+                        <select class="form-control" id="maritalStatus" name="maritalStatus" #maStat="ngModel" [(ngModel)]="currentData.maritalStatus" required>
+                            <option value="null" selected="true" disabled="true">Marital Status</option>
                             <option value="single" selected="true">Single</option>
                             <option value="married" selected="true">Married</option>
                           </select>
+                          <div *ngIf="maStat.invalid && (maStat.dirty || maStat.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="maStat.errors.required">
+                                Please select a Marital Status.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="educationLevel" name="educationLevel" [(ngModel)]="currentData.levelEducation">
-                            <option value="null" selected="true">Level of Education</option>
+                        <select class="form-control" id="educationLevel" name="educationLevel" #levEdu="ngModel" [(ngModel)]="currentData.levelEducation" required>
+                            <option value="null" selected="true" disabled="true">Level of Education</option>
                             <option *ngFor="let leducation of leducations" [value]="leducation.name">
                               {{leducation.name}}
                             </option>
                           </select>
+                          <div *ngIf="levEdu.invalid && (levEdu.dirty || levEdu.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="levEdu.errors.required">
+                                Level of Education is Required.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group mb-0 text-right">
-                        <button (click)="next()" class="btn-round" type="submit"> Continue </button>
+                        <button class="btn-round" type="submit"> Continue </button>
                     </div>
                 </form>                       
             </div> 

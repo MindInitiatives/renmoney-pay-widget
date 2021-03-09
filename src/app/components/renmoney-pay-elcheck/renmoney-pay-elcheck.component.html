@@ -79,41 +79,35 @@
                     </div>
                 </form>   -->
                 
-                <form class="login" (ngSubmit)="next()">
+                <form name="form" class="login" (ngSubmit)="f.form.valid && next()" #f="ngForm" novalidate>
                     
                     <div class="form-group">
                         <input type="text" name="firstName" required id="firstName" placeholder="First Name" class="form-control" #fname="ngModel" [(ngModel)]="currentData.firstName">
-                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="alert alert-danger">
+                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched || f.submitted)" class="alert alert-danger">
 
                         <div *ngIf="fname.errors.required">
                             First Name is required.
                         </div>
-                        <!-- <div *ngIf="name.errors.minlength">
-                            Name must be at least 4 characters long.
-                        </div>
-                        <div *ngIf="name.errors.forbiddenName">
-                            Name cannot be Bob.
-                        </div> -->
-
                         </div>
                     </div>
                     <div class="form-group">
                         <input type="text" required name="middleName" id="middleName" placeholder="Middle Name" class="form-control" #mname="ngModel" [(ngModel)]="currentData.middleName">
-                        <div *ngIf="mname.invalid && (mname.dirty || mname.touched || submitted)" class="alert alert-danger">
+                        <div *ngIf="mname.invalid && (mname.dirty || mname.touched || f.submitted)" class="alert alert-danger">
 
                             <div *ngIf="mname.errors.required">
                                 Middle Name is required.
                             </div>
-                            <!-- <div *ngIf="name.errors.minlength">
-                                Name must be at least 4 characters long.
-                            </div>
-                            <div *ngIf="name.errors.forbiddenName">
-                                Name cannot be Bob.
-                            </div> -->
-    
                             </div>
                     </div>
-                    <div class="form-group"><input type="text" required name="lastName" id="lastName" placeholder="Last Name" class="form-control" [(ngModel)]="currentData.lastName"></div>
+                    <div class="form-group">
+                        <input type="text" required name="lastName" id="lastName" placeholder="Last Name" class="form-control" #lname="ngModel" [(ngModel)]="currentData.lastName">
+                        <div *ngIf="lname.invalid && (lname.dirty || lname.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="lname.errors.required">
+                                Last Name is required.
+                            </div>
+                            </div>
+                    </div>
 
                     <div class="radio-form form-group">
                         <div class="radio-label">
@@ -122,55 +116,123 @@
                              </label>
                           </div>
                         <div class="custom-control custom-radio w-100">
-                          <input type="radio" class="custom-control-input" name="employmentStatus" [(ngModel)]="currentData.employmentStatus" value="employed" id="customRadios1">
+                          <input type="radio" class="custom-control-input" name="employmentStatus" #empSt="ngModel" [(ngModel)]="currentData.employmentStatus" value="employed" id="customRadios1" required>
                           <label class="custom-control-label" for="customRadios1">
                             Employed
                            </label>
                           </div>
                           <div class="custom-control custom-radio w-100">
-                            <input type="radio" class="custom-control-input" name="employmentStatus"  [(ngModel)]="currentData.employmentStatus" value="self employed" id="customRadios2">
+                            <input type="radio" class="custom-control-input" name="employmentStatus" #empSt="ngModel" [(ngModel)]="currentData.employmentStatus" value="self employed" id="customRadios2" required>
                             <label class="custom-control-label" for="customRadios2">
                               Self-employed
                              </label>
                             </div>
+
+                            <div *ngIf="empSt.invalid && (f.submitted)" class="alert alert-danger">
+
+                                <div *ngIf="empSt.errors.required">
+                                    Please Select an Employment Status.
+                                </div>
+                                </div>
                       </div>
                     <div class="form-group">
-                        <select class="form-control" id="state" name="state" [(ngModel)]="currentData.state">
-                            <option value="null" selected="true">State</option>
+                        <select class="form-control" id="state" name="state" #sname="ngModel" [(ngModel)]="currentData.state" required>
+                            <option value="null" selected="true" disabled="true">State</option>
                             <option *ngFor="let state of states" [value]="state.name">
                               {{state.name}}
                             </option>
                           </select>
+                          <div *ngIf="sname.invalid && (sname.dirty || sname.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="sname.errors.required">
+                                Please select a State.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="lga" name="local government area" [(ngModel)]="currentData.lga">
+                        <select class="form-control" id="lga" name="local government area" #lganame="ngModel" [(ngModel)]="currentData.lga" required>
                             <option value="null" selected="true">LGA</option>
                             <option *ngFor="let lga of lgas" [value]="lga.name">
                               {{lga.name}}
                             </option>
                           </select>
+                          <div *ngIf="lganame.invalid && (lganame.dirty || lganame.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="lganame.errors.required">
+                                Please select an LGA.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="income" name="income" [(ngModel)]="currentData.monthlyIncome">
-                            <option value="null" selected="true">Select</option>
+                        <select class="form-control" id="income" name="income" #iname="ngModel" [(ngModel)]="currentData.monthlyIncome" required>
+                            <option value="null" selected="true">Monthly Income</option>
                             <option *ngFor="let income of incomes" [value]="income.amount">
                               {{income.amount|currency:"$"}}
                             </option>
                           </select>
+                          <div *ngIf="iname.invalid && (iname.dirty || iname.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="iname.errors.required">
+                                Please select a Monthly Income.
+                            </div>
+                            </div>
                     </div>
-                    <div class="form-group"><input type="text" required name="bvn" id="bvn" maxlength="10" placeholder="BVN" class="form-control" [(ngModel)]="currentData.bvn"></div>
                     <div class="form-group">
-                        <input type="text" placeholder="Date of Birth" name="dateOfBirth" class="form-control air-datepicker" [(ngModel)]="currentData.dob">
+                        <input type="text" required name="bvn" id="bvn" minlength="10" maxlength="10" placeholder="BVN" class="form-control" #bvnno="ngModel" [(ngModel)]="currentData.bvn">
+                        <div *ngIf="bvnno.invalid && (bvnno.dirty || bvnno.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="bvnno.errors.required">
+                                BVN is Required.
+                            </div>
+                            <div *ngIf="bvnno.errors.minlength">
+                                BVN must be at least 10 characters long.
+                            </div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Date of Birth" name="dateOfBirth" class="form-control air-datepicker" #dbname="ngModel" [(ngModel)]="currentData.dob" required>
                         <i class="far fa-calendar-alt"></i>
+                        <div *ngIf="dbname.invalid && (dbname.dirty || dbname.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="dbname.errors.required">
+                                Please select a Date.
+                            </div>
+                            </div>
                     </div>
-                    <div class="form-group"><input type="email" required name="email_address" id="email_address" placeholder="Email address" class="form-control" [(ngModel)]="currentData.email"></div>
-                    <div class="form-group"><input type="tel" required name="phone" id="phone" placeholder="Phone number" class="form-control" [(ngModel)]="currentData.phone"></div>
                     <div class="form-group">
-                        <select class="form-control" id="gender" name="gender" [(ngModel)]="currentData.gender">
+                        <input type="email" required name="email_address" id="email_address" placeholder="Email address" class="form-control" #eadd="ngModel" [(ngModel)]="currentData.email">
+                        <div *ngIf="eadd.invalid && (eadd.dirty || eadd.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="eadd.errors.required">
+                                Email is Required.
+                            </div>
+                            <div *ngIf="eadd.errors.email">
+                                Please use a valid Email
+                            </div>
+    
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" required name="phone" id="phone" placeholder="Phone number" class="form-control" #pno="ngModel" [(ngModel)]="currentData.phone">
+                        <div *ngIf="pno.invalid && (pno.dirty || pno.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="pno.errors.required">
+                                Phone number is Required.
+                            </div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="gender" name="gender" #gname="ngModel" [(ngModel)]="currentData.gender" required>
                             <option value="null" selected="true">Gender</option>
                             <option value="male" selected="true">Male</option>
                             <option value="female" selected="true">Female</option>
                           </select>
+                          <div *ngIf="gname.invalid && (gname.dirty || gname.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="gname.errors.required">
+                                Please select a Gender.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group mb-0 text-right">
                         <button class="btn-round" type="submit"> Continue </button>

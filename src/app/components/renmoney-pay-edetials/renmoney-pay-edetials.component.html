@@ -11,28 +11,67 @@
             </div>                
             <!-- <h2 class="title-3"> sign in </h2> -->
             <div class="login-form clrbg-before">
-                <form class="login">
+                <form name="form" class="login" (ngSubmit)="f.form.valid && finish()" #f="ngForm" novalidate>
                     
-                    <div class="form-group"><input type="text" required name="employerName" id="name" placeholder="Employer Name" class="form-control" [(ngModel)]="currentData.employerName"></div>
                     <div class="form-group">
-                        <select class="form-control" id="empSector" name="employerSector" [(ngModel)]="currentData.employerSector">
-                            <option value="null" selected="true">Employer Sector</option>
+                        <input type="text" required name="employerName" id="name" placeholder="Employer Name" class="form-control" #empname="ngModel" [(ngModel)]="currentData.employerName">
+                        <div *ngIf="empname.invalid && (empname.dirty || empname.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="empname.errors.required">
+                                Employer Name is Required.
+                            </div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="empSector" name="employerSector" #empSec="ngModel" [(ngModel)]="currentData.employerSector" required>
+                            <option value="null" selected="true" disabled="true">Employer Sector</option>
                             <option *ngFor="let sector of sectors" [value]="sector.name">
                               {{sector.name}}
                             </option>
                           </select>
+                          <div *ngIf="empSec.invalid && (empSec.dirty || empSec.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="empSec.errors.required">
+                                Employer Sector is Required.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Employment start date" name="employerStartDate" class="form-control air-datepicker" [(ngModel)]="currentData.employmentStartDate">
+                        <input type="text" placeholder="Employment start date" name="employerStartDate" #empSD="ngModel" class="form-control air-datepicker" [(ngModel)]="currentData.employmentStartDate" required>
                         <i class="far fa-calendar-alt"></i>
+                        <div *ngIf="empSD.invalid && (empSD.dirty || empSD.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="empSD.errors.required">
+                                Employer Start Date is Required.
+                            </div>
+                            </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="officeAddress" [(ngModel)]="currentData.officeAddress" id="address" rows="1" maxlength="70" placeholder="Office Address"></textarea>
+                        <textarea class="form-control" name="officeAddress" #offAdd="ngModel" [(ngModel)]="currentData.officeAddress" id="address" rows="1" maxlength="70" placeholder="Office Address" required></textarea>
+                        <div *ngIf="offAdd.invalid && (offAdd.dirty || offAdd.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="offAdd.errors.required">
+                                Office Address is Required.
+                            </div>
+                            </div>
                       </div>
-                      <div class="form-group"><input type="email" required name="email_address" id="email_address" placeholder="Work Email" class="form-control" [(ngModel)]="currentData.workEmail"></div>
+
+                      <div class="form-group">
+                          <input type="email" required name="email_address" id="email_address" placeholder="Work Email" class="form-control" #wrke="ngModel" [(ngModel)]="currentData.workEmail">
+                          <div *ngIf="wrke.invalid && (wrke.dirty || wrke.touched || f.submitted)" class="alert alert-danger">
+
+                            <div *ngIf="wrke.errors.required">
+                                Work Email is Required.
+                            </div>
+                            <div *ngIf="wrke.errors.email">
+                                Please use a valid Email
+                            </div>
+    
+                            </div>
+                        </div>
                     
                     <div class="form-group mb-0 text-right">
-                        <button (click)="finish()" class="btn-round" type="submit"> Submit </button>
+                        <button class="btn-round" type="submit"> Submit </button>
                     </div>
                 </form>                       
             </div> 
