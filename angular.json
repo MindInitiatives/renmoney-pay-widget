@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "renmoney-pay-widget"
+    }
+  },
+  "defaultProject": "renmoney-pay-widget",
+  "cli": {
+    "analytics": "62ff59c4-8873-4ba1-a78f-09dca6b80fc2"
+  }
 }
