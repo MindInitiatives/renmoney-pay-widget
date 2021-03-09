@@ -49,7 +49,7 @@
 }
 
 
- 
+@media screen and (min-width: 768px) {
     /* replace "1" with the number of the first field that you want to align horizontally */
     /* .login>*:nth-child(1), */
     /* replace "2" with the number of the second field that you want to align horizontally */
@@ -72,3 +72,4 @@
     .login>*:nth-child(12){
         width: 32%;
     }
+}

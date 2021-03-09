@@ -151,7 +151,7 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="lga" name="local government area" #lganame="ngModel" [(ngModel)]="currentData.lga" required>
-                            <option value="null" selected="true">LGA</option>
+                            <option value="null" selected="true" disabled="true">LGA</option>
                             <option *ngFor="let lga of lgas" [value]="lga.name">
                               {{lga.name}}
                             </option>

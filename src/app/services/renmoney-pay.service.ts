@@ -8,8 +8,6 @@ import { catchError } from 'rxjs/operators';
 })
 export class RenmoneyPayService {
   public apiURL = 'https://jsonplaceholder.typicode.com/todos';
-  
-  public appID = '&appid=dc9b03f27b6d1b3ef9e1e36680b989ed';
 
   data : any
 

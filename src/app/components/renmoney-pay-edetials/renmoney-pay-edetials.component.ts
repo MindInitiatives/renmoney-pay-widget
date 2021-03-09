@@ -41,6 +41,7 @@ export class RenmoneyPayEdetialsComponent implements OnInit {
         this.finalData = data
       }
 
+
       else {
         this.finalData = JSON.parse(this.renmoneyService.getCurrentData());
       }
@@ -82,6 +83,11 @@ export class RenmoneyPayEdetialsComponent implements OnInit {
 
   finish () {
 
+    
+    if (this.finalData == null) {
+      this.finalData = {}
+    }
+
     this.finalData.employment = this.currentData;
     this.dataService.updateData(this.finalData);
     this.renmoneyService.storeCurrentData(this.finalData);
@@ -89,6 +95,13 @@ export class RenmoneyPayEdetialsComponent implements OnInit {
 
     this.renmoneyService.getData(this.value).subscribe(data => {
       console.log(data)
+      alert("Check the Console for the Results. Thank you !!!")
+
+      setTimeout ( ()=> {
+        this.renmoneyService.removeCurrentData();
+      }, 2000)
+
+      this.router.navigate(['/intro'])
     },
     err => {
       console.log(err);
