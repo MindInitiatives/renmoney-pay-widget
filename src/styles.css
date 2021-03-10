@@ -63,8 +63,9 @@
   8 - Responsive 
 
  * -------------------------------------------------------------------------- */
- @import url(https://fonts.googleapis.com/css?family=Roboto:100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic);
- @import url(https://fonts.googleapis.com/css?family=Poppins:400,600,300,500,700);
+ /* @import url(https://fonts.googleapis.com/css?family=Roboto:100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic);
+ @import url(https://fonts.googleapis.com/css?family=Poppins:400,600,300,500,700); */
+ @import url(http://fonts.cdnfonts.com/css/circular-std-book);
  
  /******************************* 
      1 - GENERAL CSS STARTS 
@@ -256,7 +257,7 @@
  
  .access-screen {
    /* background: url(/assets/img/background/background.svg);*/
-     background-color: #6c3320; 
+     background-color: rgb(234, 247, 247); 
    /* background-image: url(/assets/images/background/login-bg.jpg); */
    background-size: cover;
    background-position: bottom;
@@ -380,7 +381,7 @@
 
    
    position: absolute;
-   font-family: Circularstd, sans-serif;
+   font-family: Circular Std Book, sans-serif;
    top: 50%;
    left: 50%;
    /* display: flex; */
@@ -396,7 +397,7 @@
  .access-wrap .access-box {
    background: #fff;
    border-radius: 20px;
-   padding: 35px 35px 30px;
+   padding: 25px 35px 25px;
    position: relative;
    /* width: 100%; */
  }
@@ -479,6 +480,15 @@
    text-transform: uppercase;
    letter-spacing: 1px;
  }
+
+ .span1 {
+  color: #169ba7;
+}
+
+ .span2 {
+  color: #f15822;
+  text-decoration: none;
+}
  .section-title {
    font-size: 28px;
  }
@@ -491,6 +501,8 @@
  }
  .title-3 {
    font-size: 44px;
+   color: #055e83;
+   font-weight: 900;
  }
  .post-title,
  .product-title,
@@ -995,17 +1007,17 @@
  .pagintn > li a:focus,
  .widget-wrap.tag-cloud a:hover,
  .widget-wrap.tag-cloud a:focus {
-   background-color: #f5ab35;
+   background-color: #f15822;
  }
  .clrbg-before:before,
  .clrbg-after:after,
  .social-icons li a:hover,
  .social-icons li a:focus,
  .pricing-box.active .btn-round {
-   background-color: #f5ab35;
+   background-color: #f15822;
  }
  .banner {
-   border-bottom: 5px solid #f5ab35;
+   border-bottom: 5px solid #f15822;
  }
  .form-control:focus,
  .themeclr-border,
@@ -1015,7 +1027,7 @@
  .btn-round:focus,
  .pricing-box.active,
  .pricing-box.active .btn-round {
-   border-color: #f5ab35;
+   border-color: #f15822;
  }
  
  /**-- Color-2 Dark --**/
@@ -1104,16 +1116,16 @@
  .btn-1,
  .btn-round,
  .theme-countdown {
-   font-family: "Poppins", sans-serif;
+   font-family: "Circular Std Black", sans-serif;
    font-weight: 600;
  }
  .section-title,
  .bg-text {
-   font-family: "Poppins", sans-serif;
+   font-family: "Circular Std Book", sans-serif;
    font-weight: 900;
  }
  .font2-light {
-   font-family: "Poppins", sans-serif;
+   font-family: "Circular Std Book", sans-serif;
    font-weight: 300;
  }
  .italic-text {
@@ -2277,6 +2289,11 @@
    top: -1px;
    width: 50%;
  }
+
+ .login-form .acess-content {
+   width: 100%;
+ }
+
  .create-accnt {
    background-color: #222222;
    border-radius: 4px;
@@ -2617,7 +2634,7 @@
  }
  
  .copyright {
-    color: #fafafa;
+    color: #055e83;
     opacity: 0.7;
     font-size: 12px;
     margin-right: 10px;
@@ -2625,7 +2642,7 @@
  
  .credits,
  .credits > a {
-   color: #fafafa;
+   color: #4a5568;
    opacity: 0.7;
    font-size: 12px;
    text-decoration: none;
@@ -3734,7 +3751,7 @@ p a {
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, Circular Std Book, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
   }
   
@@ -3766,7 +3783,7 @@ p a {
   
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, Circular Std Book "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: .88rem;
     font-weight: 400;
     line-height: 1.5;
@@ -7530,7 +7547,7 @@ p a {
   /* This is the checked state */
   .custom-radio .custom-control-input:checked ~ .custom-control-label::before,
   .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
-    background-color: #38CCF5;  /* teal */
+    background-color: #169ba7;  /* teal */
     border-radius: 50%;
   }
   
@@ -10000,7 +10017,7 @@ p a {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, Circular Std Book, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -10125,7 +10142,7 @@ p a {
     z-index: 1060;
     display: block;
     max-width: 320px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, Circular Std Book, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;

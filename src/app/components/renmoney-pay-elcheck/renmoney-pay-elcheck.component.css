@@ -48,6 +48,35 @@
     width: 100%;
 }
 
+.btn-round {
+    border-radius: 30px;
+    text-align: center;
+    border: 2px solid #169ba7;
+    height: 40px;
+    line-height: 0px;
+    padding: 10px;
+    font-size: 14px;
+    color: #169ba7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 200px;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+.btn-round:hover,
+ .btn-round:focus {
+   color: #ffffff;
+ }
+
+ .btn-round:hover,
+ .btn-round:focus {
+   background-color: #f15822;
+   border-color: #f15822;
+ }
+
 
 @media screen and (min-width: 768px) {
     /* replace "1" with the number of the first field that you want to align horizontally */

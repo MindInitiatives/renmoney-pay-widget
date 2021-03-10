@@ -4,11 +4,11 @@ import { Injector, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RenmoneyPayIntroComponent } from './components/renmoney-pay-intro/renmoney-pay-intro.component';
-import {createCustomElement} from '@angular/elements';
+import { createCustomElement } from '@angular/elements';
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RenmoneyPayService } from './services/renmoney-pay.service';
 import { DataService } from './services/data.service';

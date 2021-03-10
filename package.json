@@ -8,11 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:elements": "ng build --prod --outputHashing none --single-bundle && node ./mergelib.js",
-    "renmoneycardbuild": "ng build --prod --output-hashing=none && node ./mergelib.js",
-    "el-build": "npm run el-build-task && npm run el-package-task",
-    "el-build-task": "ng build renmoney-pay-widget --prod --output-hashing=none",
-    "el-package-task": "cat ./dist/renmoney-pay-widget/{polyfills,runtime,main}.js > ./dist/renmoney-pay-widget.js"
+    "renmoneycardbuild": "ng build --prod --output-hashing=none && node ./mergelib.js"
   },
   "private": true,
   "dependencies": {
