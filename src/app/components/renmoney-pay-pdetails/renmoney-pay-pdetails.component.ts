@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataDetails, LEducation, Personal } from 'src/app/models/data.model';
@@ -9,7 +9,8 @@ declare var $ : any;
 @Component({
   selector: 'app-renmoney-pay-pdetails',
   templateUrl: './renmoney-pay-pdetails.component.html',
-  styleUrls: ['./renmoney-pay-pdetails.component.css']
+  styleUrls: ['./renmoney-pay-pdetails.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class RenmoneyPayPdetailsComponent implements OnInit {
 
